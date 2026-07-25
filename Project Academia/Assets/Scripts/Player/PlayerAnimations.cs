@@ -2,15 +2,102 @@ using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
 {
+    private Animator animator;
+    private bool isFacingRight;
+    [SerializeField]
+    private PlayerMovement playerMovement;
+
+    ///This represents the color mode the player is in, based on this the player will be able to perform different abilities
+    public enum MoveStates
+    {
+        IDLE,
+        WALK,
+        RUN,
+        HALT,
+        JUMP,
+        FALL,
+        LANDED,
+        GRIND
+    }
+
+    [Space(10f)]
+    public MoveStates state;//idle
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
+        isFacingRight = true;
+    }
+
+    /// <summary>
+    /// Flip gets the current local scale and flips it by multiplying it by -1
+    /// and setting the value of isFacingRight to the opposite value (true or false)
+    /// </summary>
+
+    private void SpriteXDirection()
+    {
+        if (playerMovement.getMoveDirection().x < -0.01f && isFacingRight)
+        {
+            Flip();
+        }
+
+        if (playerMovement.getMoveDirection().x > 0.01f && !isFacingRight)
+        {
+            Flip();
+        }
+    }
+
+    private void Flip()
+    {
+        Vector3 currentLocalScale = this.transform.localScale;
+        currentLocalScale.x *= -1;
+        transform.localScale = currentLocalScale;
+        isFacingRight = !isFacingRight;
+    }
+
+    private void SpriteChangeUpdate()
+    {
+        //Idle
+        if (playerMovement.OnGround())
+        {
+            if (Mathf.Abs(playerMovement.getMoveDirection().x) == 0f)
+            {
+                state = MoveStates.IDLE;
+            }
+
+            //Walking and Runing
+
+            if (Mathf.Abs(playerMovement.getMoveDirection().x) > 0.1f)
+            {
+                if (playerMovement.Walking())
+                {
+                    state = MoveStates.WALK;
+                }
+
+                if (playerMovement.Running())
+                {
+                    state = MoveStates.RUN;
+                }
+            }
+        }
+    }
+
+    private void setAnimationParameters()
+    {
+        animator.SetInteger("MoveStates", (int)state);
+        SpriteChangeUpdate();
+    }
+
+    public bool SpriteFacingRight()
+    {
+        return isFacingRight;   
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        SpriteXDirection();
+        setAnimationParameters();
     }
 }
