@@ -1,11 +1,15 @@
+using System.Threading;
 using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
 {
     private Animator animator;
     private bool isFacingRight;
+
     [SerializeField]
     private PlayerMovement playerMovement;
+
+    private float fallTimer;
 
     ///This represents the color mode the player is in, based on this the player will be able to perform different abilities
     public enum MoveStates
@@ -28,7 +32,18 @@ public class PlayerAnimations : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         isFacingRight = true;
+        fallTimer = 0f; 
     }
+
+    /// <summary>
+    /// Fall and 
+    /// </summary>
+
+    public void PlayerFallingTimer()
+    {
+        fallTimer += Time.deltaTime;
+    }
+
 
     /// <summary>
     /// Flip gets the current local scale and flips it by multiplying it by -1
@@ -79,6 +94,19 @@ public class PlayerAnimations : MonoBehaviour
                 {
                     state = MoveStates.RUN;
                 }
+            }
+        }
+        else
+        {
+            if(playerMovement.getRigidbody2D().linearVelocityY > 0.1f)
+            {
+                state = MoveStates.JUMP;
+            }
+
+            if (playerMovement.getRigidbody2D().linearVelocityY < -0.1f)
+            {
+                state = MoveStates.FALL;
+                Invoke("PlayerFallingTimer",0.01f);
             }
         }
     }

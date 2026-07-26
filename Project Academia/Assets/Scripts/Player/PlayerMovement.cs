@@ -58,14 +58,17 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
     public bool OnGround()
     {
         return Physics2D.OverlapCircle(groundChecker.position, groundCheckerRadius, groundLayer);
     }
+
     public bool Walking()
     {
         return isWalking;
     }
+
     public bool Running()
     {
         return isRunning;
@@ -87,15 +90,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void PlayerRun()
-    {
-
-    }
-
     private void SpeedAcceleration()
     {
-        const float acceleration = 50.5f;
-        const float deceleration = 50.5f;
+        const float acceleration = 55.5f;
+        const float deceleration = 55.5f;
 
         if (moveDirection.x == 0f)
         {
@@ -133,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
     private void PlayerJump()
     {
         if (canJump)
