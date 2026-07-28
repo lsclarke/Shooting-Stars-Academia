@@ -12,9 +12,15 @@ public class PlayerColor : MonoBehaviour
     [SerializeField]
     private GameObject colorWheelCanvas;
 
+    public Color[] colorWheel;
+
+    [SerializeField]
+    private SpriteRenderer playerSpriteRenderer;
+    private Material starBoyMaterial;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        starBoyMaterial = playerSpriteRenderer.material;
         wheelOn = false;
     }
 
@@ -48,6 +54,38 @@ public class PlayerColor : MonoBehaviour
     {
         yield return new WaitForSeconds(.05f);
         colorShifted = false;
+
+        switch (starBoy.zone)
+        {
+            case StarBoy.ColorZone.BASE:
+                starBoyMaterial.SetColor("_StarBoyColor", colorWheel[0]);
+                setColorShift(false);
+                break;
+            case StarBoy.ColorZone.RED:
+                starBoyMaterial.SetColor("_StarBoyColor", colorWheel[1]);
+                setColorShift(false);
+                break;
+            case StarBoy.ColorZone.BLUE:
+                starBoyMaterial.SetColor("_StarBoyColor", colorWheel[2]);
+                setColorShift(false);
+                break;
+            case StarBoy.ColorZone.YELLOW:
+                starBoyMaterial.SetColor("_StarBoyColor", colorWheel[3]);
+                setColorShift(false);
+                break;
+            case StarBoy.ColorZone.GREEN:
+                starBoyMaterial.SetColor("_StarBoyColor", colorWheel[4]);
+                setColorShift(false);
+                break;
+            case StarBoy.ColorZone.ORANGE:
+                starBoyMaterial.SetColor("_StarBoyColor", colorWheel[5]);
+                setColorShift(false);
+                break;
+            case StarBoy.ColorZone.VIOLET:
+                starBoyMaterial.SetColor("_StarBoyColor", colorWheel[6]);
+                setColorShift(false);
+                break;
+        }
     }
 
     private IEnumerator ColorWheelActive()

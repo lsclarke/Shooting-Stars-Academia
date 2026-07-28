@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,6 +16,9 @@ public class PlayerAnimations : MonoBehaviour
     [SerializeField]
     private PlayerColor playerColor;
 
+    [SerializeField]
+    private ParticleSystem colorShiftBurstParticle;
+
     ///This represents the color mode the player is in, based on this the player will be able to perform different abilities
     public enum MoveStates
     {
@@ -30,6 +34,7 @@ public class PlayerAnimations : MonoBehaviour
 
     [Space(10f)]
     public MoveStates state;//idle
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -112,6 +117,19 @@ public class PlayerAnimations : MonoBehaviour
         }
     }
 
+    public void SetMaterialColor()
+    {
+        StartCoroutine(playerColor.ColorShift());
+        StartCoroutine(burtsParricle());       
+    }
+
+    IEnumerator burtsParricle()
+    {
+        colorShiftBurstParticle.Play();
+        yield return new WaitForSeconds(1f);
+        colorShiftBurstParticle.Stop();
+    }
+
     public void EndLandingSequence()
     {
         playerMovement.ResetFallTimer();
@@ -130,9 +148,9 @@ public class PlayerAnimations : MonoBehaviour
         return isFacingRight;   
     }
 
-    public void setMaterialColor()
+    public void EndColorShift()
     {
-
+        playerColor.setColorShift(false);
     }
 
     // Update is called once per frame

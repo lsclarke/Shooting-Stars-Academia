@@ -322,7 +322,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
     "m_ObjectId": "3c86039834934f6e8458634fffc86e16",
     "m_Id": 0,
-    "m_DisplayName": "Color Red",
+    "m_DisplayName": "StarBoyColor",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -766,10 +766,10 @@
     "promotedFromAssetID": "",
     "promotedFromCategoryName": "",
     "promotedOrdering": -1,
-    "m_Name": "Color Red",
+    "m_Name": "StarBoyColor",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Color Red",
-    "m_DefaultReferenceName": "_Color_Red",
+    "m_RefNameGeneratedByDisplayName": "StarBoyColor",
+    "m_DefaultReferenceName": "_StarBoyColor",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -782,13 +782,13 @@
     "m_PerRendererData": false,
     "m_customAttributes": [],
     "m_Value": {
-        "r": 1024.0,
-        "g": 0.0,
-        "b": 0.0,
+        "r": 0.000740095681976527,
+        "g": 0.000740095681976527,
+        "b": 0.000740095681976527,
         "a": 1.0
     },
     "isMainColor": false,
-    "m_ColorMode": 1
+    "m_ColorMode": 0
 }
 
 {

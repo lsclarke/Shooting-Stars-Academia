@@ -291,7 +291,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 69540734546486677}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6911571292729106336}
+        m_TargetAssemblyTypeName: ColorWheelCanvas, Assembly-CSharp
+        m_MethodName: YellowButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1372980068907182639
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,7 +540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PURPLE
+  m_text: VIOLET
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1952,7 +1964,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1396948536139476574}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6911571292729106336}
+        m_TargetAssemblyTypeName: ColorWheelCanvas, Assembly-CSharp
+        m_MethodName: GreenButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6521049108258899683
 GameObject:
   m_ObjectHideFlags: 0
@@ -2149,7 +2173,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3558909734009438514}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6911571292729106336}
+        m_TargetAssemblyTypeName: ColorWheelCanvas, Assembly-CSharp
+        m_MethodName: BlueButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6654306239877573383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2201,7 +2237,7 @@ GameObject:
   - component: {fileID: 7771737561884370433}
   - component: {fileID: 3498092314392966506}
   m_Layer: 0
-  m_Name: Reset Button
+  m_Name: Base Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2311,7 +2347,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6911571292729106336}
         m_TargetAssemblyTypeName: ColorWheelCanvas, Assembly-CSharp
-        m_MethodName: ExitColorWheel
+        m_MethodName: BaseButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2513,6 +2549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ColorWheelCanvas
   starBoy: {fileID: 11400000, guid: a238d468c616e9d4a8278257b7ac373a, type: 2}
   playerColorScript: {fileID: 0}
+  colorShiftCamera: {fileID: 0}
   colorZoneModeText: {fileID: 4054855281663870885}
 --- !u!1 &8087808083743522004
 GameObject:
@@ -2527,7 +2564,7 @@ GameObject:
   - component: {fileID: 2290229394901475574}
   - component: {fileID: 2478002550251808868}
   m_Layer: 0
-  m_Name: Purple Color Button
+  m_Name: Violet Color Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2634,7 +2671,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2290229394901475574}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6911571292729106336}
+        m_TargetAssemblyTypeName: ColorWheelCanvas, Assembly-CSharp
+        m_MethodName: VioletButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8176296079769271281
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,7 +2880,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1327504637381852734}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6911571292729106336}
+        m_TargetAssemblyTypeName: ColorWheelCanvas, Assembly-CSharp
+        m_MethodName: OrangeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8820262229378492684
 GameObject:
   m_ObjectHideFlags: 0
@@ -2844,7 +2905,7 @@ GameObject:
   - component: {fileID: 4692602766303811196}
   - component: {fileID: 6880301570921258784}
   m_Layer: 0
-  m_Name: Purple Icon Image
+  m_Name: Violet Icon Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
