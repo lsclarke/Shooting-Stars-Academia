@@ -14,8 +14,8 @@ Combining entertainment and education to further growth and development. This ed
    - Chroma
 
   Bosses:
-    - Paprika = RED.
-    - Oregano = Green.
+    - Rod = RED.
+    - Yuzu = Yellow.
     - Lapis = Blue.
     - Mono = Alpha and Saturation.
    
