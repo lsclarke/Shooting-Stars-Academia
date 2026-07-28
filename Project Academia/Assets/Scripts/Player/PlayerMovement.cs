@@ -211,8 +211,6 @@ public class PlayerMovement : MonoBehaviour
         fallTimer = 0f;
     }
 
-
-
     public void Move(InputAction.CallbackContext context)
     {
         moveDirection = context.ReadValue<Vector2>();
