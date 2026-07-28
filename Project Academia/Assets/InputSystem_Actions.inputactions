@@ -43,7 +43,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Color Swap",
+                    "name": "Color Wheel",
                     "type": "Button",
                     "id": "27c5f898-bc57-4ee1-8800-db469aca5fe3",
                     "expectedControlType": "",
@@ -355,7 +355,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Color Swap",
+                    "action": "Color Wheel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -366,7 +366,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Color Swap",
+                    "action": "Color Wheel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e316aaf6-7724-459e-9dbe-a07a8c30c44a",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Color Wheel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
