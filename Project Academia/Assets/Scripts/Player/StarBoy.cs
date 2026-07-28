@@ -29,7 +29,7 @@ public class StarBoy : ScriptableObject
     [Space(10f)]
     public ColorZone zone;//BASE
 
-
+    public bool isActive;
 
 
 

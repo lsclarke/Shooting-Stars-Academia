@@ -3,13 +3,14 @@ using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
 {
+
+    [SerializeField]
+    private StarBoy starBoy;
     private Animator animator;
     private bool isFacingRight;
 
     [SerializeField]
     private PlayerMovement playerMovement;
-
-    private float fallTimer;
 
     ///This represents the color mode the player is in, based on this the player will be able to perform different abilities
     public enum MoveStates
@@ -32,16 +33,6 @@ public class PlayerAnimations : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         isFacingRight = true;
-        fallTimer = 0f; 
-    }
-
-    /// <summary>
-    /// Fall and 
-    /// </summary>
-
-    public void PlayerFallingTimer()
-    {
-        fallTimer += Time.deltaTime;
     }
 
 
@@ -95,6 +86,14 @@ public class PlayerAnimations : MonoBehaviour
                     state = MoveStates.RUN;
                 }
             }
+
+            //Landed
+
+            if (playerMovement.Landed())
+            {
+                state = MoveStates.LANDED;
+                playerMovement.setMoveSpeed(0f);
+            }
         }
         else
         {
@@ -106,9 +105,14 @@ public class PlayerAnimations : MonoBehaviour
             if (playerMovement.getRigidbody2D().linearVelocityY < -0.1f)
             {
                 state = MoveStates.FALL;
-                Invoke("PlayerFallingTimer",0.01f);
             }
         }
+    }
+
+    public void EndLandingSequence()
+    {
+        playerMovement.ResetFallTimer();
+        playerMovement.setMoveSpeed(starBoy.walkSpeed);
     }
 
     private void setAnimationParameters()
@@ -125,7 +129,10 @@ public class PlayerAnimations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpriteXDirection();
-        setAnimationParameters();
+        if (starBoy.isActive)
+        {
+            SpriteXDirection();
+            setAnimationParameters();
+        }
     }
 }
