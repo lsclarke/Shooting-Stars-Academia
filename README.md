@@ -15,7 +15,7 @@ Combining entertainment and education to further growth and development. This ed
 
   Bosses:
     - Rod = RED.
-    - Yuzu = Yellow.
+    - Yamica = Yellow.
     - Lapis = Blue.
     - Mono = Alpha and Saturation.
    
