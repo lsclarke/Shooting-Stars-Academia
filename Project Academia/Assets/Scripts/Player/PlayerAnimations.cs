@@ -1,5 +1,6 @@
 using System.Threading;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAnimations : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerAnimations : MonoBehaviour
 
     [SerializeField]
     private PlayerMovement playerMovement;
+    [SerializeField]
+    private PlayerColor playerColor;
 
     ///This represents the color mode the player is in, based on this the player will be able to perform different abilities
     public enum MoveStates
@@ -118,12 +121,18 @@ public class PlayerAnimations : MonoBehaviour
     private void setAnimationParameters()
     {
         animator.SetInteger("MoveStates", (int)state);
+        animator.SetBool("ColorShift", playerColor.getColorShift());
         SpriteChangeUpdate();
     }
 
     public bool SpriteFacingRight()
     {
         return isFacingRight;   
+    }
+
+    public void setMaterialColor()
+    {
+
     }
 
     // Update is called once per frame

@@ -8,7 +8,7 @@ public class PlayerColor : MonoBehaviour
     [SerializeField]
     private StarBoy starBoy;
     private bool wheelOn;
-
+    private bool colorShifted;
     [SerializeField]
     private GameObject colorWheelCanvas;
 
@@ -23,6 +23,16 @@ public class PlayerColor : MonoBehaviour
         wheelOn = value;
     }
 
+    public void setColorShift(bool value)
+    {
+        colorShifted = value;
+    }
+
+    public bool getColorShift()
+    {
+        return colorShifted;
+    }
+
     public bool getWheelOn()
     {
         return wheelOn;
@@ -32,6 +42,12 @@ public class PlayerColor : MonoBehaviour
     {
         wheelOn = !wheelOn;
         StartCoroutine("ColorWheelActive");
+    }
+
+    public IEnumerator ColorShift()
+    {
+        yield return new WaitForSeconds(.05f);
+        colorShifted = false;
     }
 
     private IEnumerator ColorWheelActive()

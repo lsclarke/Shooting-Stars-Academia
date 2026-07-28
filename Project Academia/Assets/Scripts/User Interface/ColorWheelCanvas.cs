@@ -11,14 +11,12 @@ public class ColorWheelCanvas : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI colorZoneModeText;
 
-    [SerializeField]
-    private TextMeshProUGUI selectedColorText;
-
     public void BaseButton()
     {
         starBoy.zone = StarBoy.ColorZone.BASE;
         colorZoneModeText.text = $"Zone: {starBoy.zone.ToString()}";
         ExitColorWheel();
+        ActivateColorShift();
     }
 
     public void RedButton()
@@ -26,6 +24,12 @@ public class ColorWheelCanvas : MonoBehaviour
         starBoy.zone = StarBoy.ColorZone.RED;
         colorZoneModeText.text = $"Zone: {starBoy.zone.ToString()}";
         ExitColorWheel();
+        ActivateColorShift();
+    }
+
+    private void ActivateColorShift()
+    {
+        playerColorScript.setColorShift(true);
     }
 
     public void ExitColorWheel()
