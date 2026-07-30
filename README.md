@@ -23,6 +23,10 @@ Combining entertainment and education to further growth and development. This ed
     - Students understand the color wheel and know how to define primary, secondary and tertiary colours.
     - Students understand the color wheel through practical mixing of colors.
     - Students understand and can explain the different color schemes Monochromatic, Complementary , Analogous , and Triadic.
+
+In Game Questions Source Credit:
+Julianna Kunstler
+https://juliannakunstler.com/images_art1/color/color_test_prep.pdf
     
 - Star Boy and the Book of Morse & Alpha
 
