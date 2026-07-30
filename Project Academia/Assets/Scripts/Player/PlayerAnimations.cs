@@ -18,6 +18,8 @@ public class PlayerAnimations : MonoBehaviour
 
     [SerializeField]
     private ParticleSystem colorShiftBurstParticle;
+    [SerializeField]
+    private ParticleSystem afterImageBurstParticle;
 
     ///This represents the color mode the player is in, based on this the player will be able to perform different abilities
     public enum MoveStates
@@ -120,15 +122,22 @@ public class PlayerAnimations : MonoBehaviour
     public void SetMaterialColor()
     {
         StartCoroutine(playerColor.ColorShift());
-        StartCoroutine(burtsParricle());       
     }
 
-    IEnumerator burtsParricle()
+    IEnumerator burtsParticle()
     {
+        afterImageBurstParticle.Play();
         colorShiftBurstParticle.Play();
         yield return new WaitForSeconds(1f);
         colorShiftBurstParticle.Stop();
+        yield return new WaitForSeconds(1f);
+        afterImageBurstParticle.Stop();
     }
+    public void PlayParticle()
+    {
+        StartCoroutine(burtsParticle());
+    } 
+
 
     public void EndLandingSequence()
     {

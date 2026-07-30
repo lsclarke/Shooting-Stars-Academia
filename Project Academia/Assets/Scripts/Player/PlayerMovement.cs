@@ -114,7 +114,6 @@ public class PlayerMovement : MonoBehaviour
     {
         return moveSpeed;
     }
-
     public Vector2 getMoveDirection()
     {
         return moveDirection;

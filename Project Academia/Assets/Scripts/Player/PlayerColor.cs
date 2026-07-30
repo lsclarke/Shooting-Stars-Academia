@@ -81,7 +81,7 @@ public class PlayerColor : MonoBehaviour
                 starBoyMaterial.SetColor("_StarBoyColor", colorWheel[5]);
                 setColorShift(false);
                 break;
-            case StarBoy.ColorZone.VIOLET:
+            case StarBoy.ColorZone.PURPLE:
                 starBoyMaterial.SetColor("_StarBoyColor", colorWheel[6]);
                 setColorShift(false);
                 break;

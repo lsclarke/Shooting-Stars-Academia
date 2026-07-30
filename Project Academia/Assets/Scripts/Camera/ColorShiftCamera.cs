@@ -3,15 +3,7 @@ using UnityEngine;
 
 public class ColorShiftCamera : MonoBehaviour
 {
-    [SerializeField]
-    private Transform focusLocation;
     private Camera mainCamera;
-
-    [SerializeField]
-    private PlayerAnimations playerAnimations;
-    [SerializeField]
-    private PlayerColor playerColor;
-
     private bool On;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,7 +16,7 @@ public class ColorShiftCamera : MonoBehaviour
     {
         mainCamera.orthographicSize -= Time.deltaTime * 10f;
 
-        if(mainCamera.orthographicSize <= 3f)
+        if (mainCamera.orthographicSize <= 3f)
         {
             mainCamera.orthographicSize = 3f;
         }
