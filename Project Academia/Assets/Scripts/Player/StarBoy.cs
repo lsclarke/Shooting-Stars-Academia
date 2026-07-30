@@ -26,7 +26,8 @@ public class StarBoy : ScriptableObject
         BLUE,
         GREEN,
         ORANGE,
-        VIOLET
+        PURPLE,
+        BLACK
     }
 
     [Space(10f)]

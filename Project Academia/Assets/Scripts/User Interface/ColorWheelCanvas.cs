@@ -61,9 +61,9 @@ public class ColorWheelCanvas : MonoBehaviour
         ActivateColorShift();
     }
 
-    public void VioletButton()
+    public void PurpleButton()
     {
-        starBoy.zone = StarBoy.ColorZone.VIOLET;
+        starBoy.zone = StarBoy.ColorZone.PURPLE;
         colorZoneModeText.text = $"Zone: {starBoy.zone.ToString()}";
         ExitColorWheel();
         ActivateColorShift();
