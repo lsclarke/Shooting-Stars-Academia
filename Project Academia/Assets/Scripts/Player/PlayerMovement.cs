@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         moveSpeed = 0f;
         rb = GetComponent<Rigidbody2D>();
         isWalking = true;
+        starBoy.isActive = true;
     }
 
     private void FixedUpdate()
@@ -174,12 +175,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void PlayerJump()
     {
-        if (canJump)
+        if (starBoy.isActive)
         {
-            Vector2 jumpDirection = new Vector2(rb.linearVelocityX, starBoy.jumpForce);
-            rb.AddForce(jumpDirection, ForceMode2D.Impulse);
+            if (canJump)
+            {
+                Vector2 jumpDirection = new Vector2(rb.linearVelocityX, starBoy.jumpForce);
+                rb.AddForce(jumpDirection, ForceMode2D.Impulse);
+            }
+            else return;
         }
-        else return;
     }
 
     public void PlayerFallingTimer()

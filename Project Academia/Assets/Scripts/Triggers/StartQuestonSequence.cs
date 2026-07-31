@@ -48,41 +48,53 @@ public class StartQuestonSequence : MonoBehaviour, IInteractable
         return ProblemNumber;
     }
 
-    public void StartColorCrisis()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        starBoy.isActive = false;
-        testQuestionManager.setContentContainerText();
-        testQuestionCanvas.setIsOnParameter(true);
-        //if (colorMatchRequired)
-        //{
-        //    if(starBoy.zone.ToString() == colorType.ToString())
-        //    {
-        //        colorMatched = true;
-        //    }
-        //    else
-        //    {
-        //        colorMatched = false;
-        //    }
-
-        //    if (colorMatched)
-        //    {
-        //        starBoy.isActive = false;
-        //        StartCoroutine("setContent");
-        //        testQuestionCanvas.setIsOnParameter(true);
-        //    }
-        //}
-        //else
-        //{
-        //    starBoy.isActive = false;
-        //    StartCoroutine("setContent");
-        //    testQuestionCanvas.setIsOnParameter(true);
-        //}
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            InteractCanvas.SetActive(true);
+        }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            InteractCanvas.SetActive(false);
+        }
+    }
+
+
+    public void StartColorCrisis()
+    {
+        if (colorMatchRequired)
+        {
+            if(starBoy.zone.ToString() == colorType.ToString())
+            {
+                colorMatched = true;
+            }
+            else
+            {
+                colorMatched = false;
+            }
+
+            if (colorMatched)
+            {
+                starBoy.isActive = false;
+                testQuestionManager.TurnOnCrisisProblemScreen();
+                testQuestionCanvas.setIsOnParameter(true);
+            }
+        }
+        else
+        {
+            starBoy.isActive = false;
+            testQuestionManager.TurnOnCrisisProblemScreen();
+            testQuestionCanvas.setIsOnParameter(true);
+        }
+    }
 
     public void Interact()
     {
         StartColorCrisis();
-        
     }
 }
