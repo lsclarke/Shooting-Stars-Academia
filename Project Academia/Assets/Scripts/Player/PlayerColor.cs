@@ -21,6 +21,7 @@ public class PlayerColor : MonoBehaviour
     void Start()
     {
         starBoyMaterial = playerSpriteRenderer.material;
+        starBoy.zone = StarBoy.ColorZone.BASE;
         wheelOn = false;
     }
 

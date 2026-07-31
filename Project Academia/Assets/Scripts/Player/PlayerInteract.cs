@@ -95,12 +95,11 @@ public class PlayerInteract : MonoBehaviour
     {
         if (InteractableObject == null)
         {
-            Debug.Log("Interact Button Pressed No action");
+            return;
         }
 
         if (InteractableObject != null)
         {
-            Debug.Log("Interact Button Pressed yes Action");
             //Create a var variable and set it to equal Interactable Object variable and do .GetComponent of The interface for interaction
             var Obj = InteractableObject.GetComponent<IInteractable>();
             //If I press the Interact button DOWN and can interact with other objects

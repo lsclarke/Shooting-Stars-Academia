@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class TestQuestionManager : MonoBehaviour
 {
@@ -25,9 +26,36 @@ public class TestQuestionManager : MonoBehaviour
     //UI Button
 
     //Int
+
     public int index;
 
+    //Bool
+
     private bool canTurnOn = true;
+
+    //Unity Events
+
+    public UnityEvent OnActive;
+    private Button button;
+
+    private void Start()
+    {
+        canTurnOn = true;
+    }
+
+    public void TurnOnCrisisProblemScreen()
+    {
+        if (canTurnOn) {
+            OnActive?.Invoke();
+            canTurnOn = false;
+        }
+    }
+
+    public void CheckForCorrectAnswer()
+    {
+        var button = GetComponent<Button>();
+
+    }
 
     public void setContentContainerText()
     {
