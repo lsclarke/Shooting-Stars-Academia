@@ -15,6 +15,8 @@ public class TestQuestionManager : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI chromaQuestionTextMesh;
+    [SerializeField]
+    private TextMeshProUGUI passFailTextMesh;
 
     [SerializeField]
     private TextMeshProUGUI answer1TextMesh;
@@ -23,8 +25,6 @@ public class TestQuestionManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI answer3TextMesh;
 
-    //UI Button
-
     //Int
 
     public int index;
@@ -32,29 +32,52 @@ public class TestQuestionManager : MonoBehaviour
     //Bool
 
     private bool canTurnOn = true;
+    private bool isAnwserCorrect;
 
     //Unity Events
 
     public UnityEvent OnActive;
+    //Button
+
     private Button button;
 
     private void Start()
     {
-        canTurnOn = true;
+        canTurnOn = true;       
     }
 
     public void TurnOnCrisisProblemScreen()
     {
         if (canTurnOn) {
+            isAnwserCorrect = false;
             OnActive?.Invoke();
             canTurnOn = false;
         }
     }
 
-    public void CheckForCorrectAnswer()
+    public void SetPassFailString(string value)
     {
-        var button = GetComponent<Button>();
+        passFailTextMesh.text = value;
+    }
 
+    public string GetPassFailString()
+    {
+        return passFailTextMesh.text;
+    }
+
+    public void SetIsAnwserCorrect(bool value)
+    {
+        isAnwserCorrect = value;
+    }
+
+    public bool GetIsAnwserCorrect()
+    {
+        return isAnwserCorrect;
+    }
+
+    public string GetCorrectAnswer()
+    {
+        return crisisManager.correctAnswers[index];
     }
 
     public void setContentContainerText()

@@ -44,18 +44,16 @@ public class PlayerMovement : MonoBehaviour
         moveSpeed = 0f;
         rb = GetComponent<Rigidbody2D>();
         isWalking = true;
-        starBoy.isActive = true;
     }
 
     private void FixedUpdate()
     {
         if (starBoy.isActive)
         {
-            rb.AddForce(moveDirection * moveSpeed);
-            SpeedAcceleration();
+            rb.AddForce(moveDirection.x * moveSpeed * Vector2.right * 2f, ForceMode2D.Force);
             Friction();
             PlayerFalling();
-
+            SpeedAcceleration();
             //Ground detection logic
             if (OnGround())
             {
@@ -145,8 +143,7 @@ public class PlayerMovement : MonoBehaviour
                 moveSpeed = 0f;
             }
         }
-
-        if (Mathf.Abs(moveDirection.x) >= 1f )
+        else if (Mathf.Abs(moveDirection.x) >= 1f)
         {
             if (isWalking)
             {
@@ -184,6 +181,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else return;
         }
+        else return;
     }
 
     public void PlayerFallingTimer()
@@ -238,7 +236,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && starBoy.isActive)
         {
             PlayerJump();
         }
