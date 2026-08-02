@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class StartQuestonSequence : MonoBehaviour, IInteractable
 {
@@ -14,6 +15,10 @@ public class StartQuestonSequence : MonoBehaviour, IInteractable
 
     [SerializeField]
     private StarBoy starBoy;
+    [SerializeField]
+    private PlayerMovement playerMovement;
+    [SerializeField]
+    private PlayerAnimations playerAnimations;
 
     [SerializeField]
     private int ProblemNumber;
@@ -22,6 +27,11 @@ public class StartQuestonSequence : MonoBehaviour, IInteractable
     private bool colorMatchRequired;
     [SerializeField]
     private bool colorMatched;
+
+    [SerializeField]
+    private ParticleSystem textureParticle;
+    [SerializeField]
+    private Light2D shapeLight2D;
 
     ///This represents the color mode the player is in, based on this the player will be able to perform different abilities
     public enum colorMatch
@@ -53,6 +63,8 @@ public class StartQuestonSequence : MonoBehaviour, IInteractable
         if (collision.gameObject.CompareTag("Player"))
         {
             InteractCanvas.SetActive(true);
+            textureParticle.Play();
+            shapeLight2D.gameObject.SetActive(true);
         }
     }
 
@@ -61,6 +73,9 @@ public class StartQuestonSequence : MonoBehaviour, IInteractable
         if (collision.gameObject.CompareTag("Player"))
         {
             InteractCanvas.SetActive(false);
+            textureParticle.Stop();
+            shapeLight2D.gameObject.SetActive(false);
+
         }
     }
 
@@ -81,6 +96,8 @@ public class StartQuestonSequence : MonoBehaviour, IInteractable
             if (colorMatched)
             {
                 starBoy.isActive = false;
+                playerMovement.enabled = false;
+                playerAnimations.enabled = false;
                 testQuestionManager.TurnOnCrisisProblemScreen();
                 testQuestionCanvas.setIsOnParameter(true);
             }
@@ -88,6 +105,8 @@ public class StartQuestonSequence : MonoBehaviour, IInteractable
         else
         {
             starBoy.isActive = false;
+            playerMovement.enabled = false;
+            playerAnimations.enabled = false;
             testQuestionManager.TurnOnCrisisProblemScreen();
             testQuestionCanvas.setIsOnParameter(true);
         }

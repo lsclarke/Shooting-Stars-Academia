@@ -478,6 +478,7 @@ GameObject:
   - component: {fileID: 2216506424956218850}
   - component: {fileID: 4770151916829100720}
   - component: {fileID: 1554086955281439607}
+  - component: {fileID: 1405039547691565082}
   m_Layer: 5
   m_Name: Answer 3 Button
   m_TagString: Untagged
@@ -586,7 +587,36 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4770151916829100720}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1405039547691565082}
+        m_TargetAssemblyTypeName: ButtonBehavior, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1405039547691565082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509205423820249514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e03b0c9f052394280d2e5f9a1963a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonBehavior
+  testQuestionManager: {fileID: 0}
+  testQuestionCanvas: {fileID: 6195659606507068809}
+  answerTextMesh: {fileID: 3347548208947761141}
+  obsticleBehavior: {fileID: 0}
+  startQuestonSequence: {fileID: 0}
 --- !u!1 &2072133999095161645
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +645,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6474693368035267003}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -711,6 +741,7 @@ GameObject:
   - component: {fileID: 5080353708113918974}
   - component: {fileID: 5497678931638673884}
   - component: {fileID: 1144209002002886159}
+  - component: {fileID: 2392016567592783246}
   m_Layer: 5
   m_Name: Answer 1 Button
   m_TagString: Untagged
@@ -819,7 +850,36 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5497678931638673884}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2392016567592783246}
+        m_TargetAssemblyTypeName: ButtonBehavior, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2392016567592783246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317248298318715001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e03b0c9f052394280d2e5f9a1963a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonBehavior
+  testQuestionManager: {fileID: 0}
+  testQuestionCanvas: {fileID: 6195659606507068809}
+  answerTextMesh: {fileID: 8747486830613619968}
+  obsticleBehavior: {fileID: 0}
+  startQuestonSequence: {fileID: 0}
 --- !u!1 &2637085621083826152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1494,7 +1554,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1700754747306856556}
   - {fileID: 5815594261218870624}
@@ -1584,7 +1644,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8342236065400923988}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1770,10 +1830,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1832,6 +1892,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176eae0aa119e3e4b8133f429f99c772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestQuestionCanvas
+  testQuestionManager: {fileID: 0}
+  starBoy: {fileID: 11400000, guid: a238d468c616e9d4a8278257b7ac373a, type: 2}
 --- !u!1 &4766611272633012108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1994,7 +2056,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4902771176165997410}
   - {fileID: 5470503705634527162}
@@ -2259,8 +2321,8 @@ RectTransform:
   m_GameObject: {fileID: 6118337503703315118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6474693368035267003}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2297,7 +2359,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pass
+  m_text: 'wrong
 
 '
   m_isRightToLeft: 0
@@ -2382,6 +2444,7 @@ GameObject:
   - component: {fileID: 1712769228258338438}
   - component: {fileID: 5397060060610055014}
   - component: {fileID: 8123633217651184409}
+  - component: {fileID: 1888684881581354756}
   m_Layer: 5
   m_Name: Answer 2 Button
   m_TagString: Untagged
@@ -2490,7 +2553,36 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5397060060610055014}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1888684881581354756}
+        m_TargetAssemblyTypeName: ButtonBehavior, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1888684881581354756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6441629478226160636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e03b0c9f052394280d2e5f9a1963a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonBehavior
+  testQuestionManager: {fileID: 0}
+  testQuestionCanvas: {fileID: 6195659606507068809}
+  answerTextMesh: {fileID: 9114181001847046715}
+  obsticleBehavior: {fileID: 0}
+  startQuestonSequence: {fileID: 0}
 --- !u!1 &6449902798739950795
 GameObject:
   m_ObjectHideFlags: 0
@@ -2519,7 +2611,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8342236065400923988}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

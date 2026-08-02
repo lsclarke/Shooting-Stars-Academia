@@ -6,9 +6,14 @@ public class TestQuestionCanvas : MonoBehaviour
 
     private Animator _animator;
     private bool isOn;
+    private bool passed;
+    private bool failed;
     [SerializeField]
     private TestQuestionManager testQuestionManager;
     private Button button;
+
+    [SerializeField]
+    private StarBoy starBoy;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,6 +21,8 @@ public class TestQuestionCanvas : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         isOn = false;
+        passed = false;
+        failed = false;
     }
 
     public void setIsOnParameter(bool value)
@@ -28,16 +35,38 @@ public class TestQuestionCanvas : MonoBehaviour
         return isOn;
     }
 
+    public void setPassedParameter(bool value)
+    {
+        passed = value;
+    }
+
+    public bool getPassedParameter()
+    {
+        return passed;
+    }
+
+    public void setFailedParameter(bool value)
+    {
+        failed = value;
+    }
+    public bool getFailedParameter()
+    {
+        return failed;
+    }
+
     private void setAnimationParameters()
     {
         _animator.SetBool("isOn", isOn);
+        _animator.SetBool("Pass", passed);
+        _animator.SetBool("Fail", failed);
+        starBoy.isActive = true;
     }
 
-    //When a button is pressed the system will check to see if the string is the same as the correct answer if it is, it will trigger a PASS.
-    //If the wrong button is pressed then the system will FAIL and the player will be thrown back and forced to have to try again once re-interacting with the object
-    public void ButtonAction()
+    public void ResetAnimationToIdle()
     {
-       
+        passed = false;
+        failed = false; 
+        isOn = false;
     }
 
     // Update is called once per frame
