@@ -12,6 +12,16 @@ Combining entertainment and education to further growth and development. This ed
 
   Narrative Helper:
    - Chroma
+   
+  STAR COLOR POWERS:
+  
+  BASE | NONE | CHARGE (CHARGE STAR POWER / STAMINA)
+  RED | SQUARE | COMBAT (LIGHT ATTACK COMBO)
+  BLUE | TRIANGLE | SPEED (DASH)
+  YELLOW | CIRCLE | JUMP (HIGHER JUMP & DOUBLE JUMP)
+  GREEN | DIAMOND | GRIND (RAIL GRIND & WALL JUMP)
+  ORANGE | PENTAGON | STOMP (STOMP & BOUNCE)
+  BLACK | X | ALL (ALL LIGHT AND HEAVY ATTACKS INCLUDING ALL COLOR POWERS)
 
   Bosses:
     - Rod = RED.
