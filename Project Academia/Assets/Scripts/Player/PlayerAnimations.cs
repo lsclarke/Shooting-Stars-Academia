@@ -74,16 +74,16 @@ public class PlayerAnimations : MonoBehaviour
 
     private void SpriteChangeUpdate()
     {
-        //Idle
+        
         if (playerMovement.OnGround())
         {
+            //Idle
             if (Mathf.Abs(playerMovement.getMoveDirection().x) == 0f)
             {
                 state = MoveStates.IDLE;
             }
 
             //Walking and Runing
-
             if (Mathf.Abs(playerMovement.getMoveDirection().x) > 0.1f)
             {
                 if (playerMovement.Walking())
@@ -98,21 +98,21 @@ public class PlayerAnimations : MonoBehaviour
             }
 
             //Landed
-
             if (playerMovement.Landed())
             {
                 state = MoveStates.LANDED;
                 playerMovement.setMoveSpeed(0f);
             }
         }
-        else
+        
+        if (!playerMovement.OnGround())
         {
             if(playerMovement.getRigidbody2D().linearVelocityY > 0.1f)
             {
                 state = MoveStates.JUMP;
             }
 
-            if (playerMovement.getRigidbody2D().linearVelocityY < -0.1f)
+            if (playerMovement.getRigidbody2D().linearVelocityY < -0.01f)
             {
                 state = MoveStates.FALL;
             }
@@ -148,6 +148,7 @@ public class PlayerAnimations : MonoBehaviour
     private void setAnimationParameters()
     {
         animator.SetInteger("MoveStates", (int)state);
+        animator.SetFloat("Fall Timer", playerMovement.getFallTime());
         animator.SetBool("ColorShift", playerColor.getColorShift());
         SpriteChangeUpdate();
     }

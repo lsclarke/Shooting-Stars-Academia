@@ -145,6 +145,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: MoveStates
     m_EventTreshold: 0
+  - m_ConditionMode: 4
+    m_ConditionEvent: Fall Timer
+    m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6311103501756059476}
   m_Solo: 0
@@ -224,6 +227,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: MoveStates
     m_EventTreshold: 1
+  - m_ConditionMode: 3
+    m_ConditionEvent: Fall Timer
+    m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7052249278817441338}
   m_Solo: 0
@@ -614,6 +620,12 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
   - m_Name: ColorShift
     m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Fall Timer
+    m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -1262,6 +1274,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: MoveStates
     m_EventTreshold: 2
+  - m_ConditionMode: 4
+    m_ConditionEvent: Fall Timer
+    m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5213801798686583091}
   m_Solo: 0
