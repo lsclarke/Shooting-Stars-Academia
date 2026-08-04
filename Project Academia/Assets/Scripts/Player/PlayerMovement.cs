@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     //Movement Variables
     private float moveSpeed;
+    [SerializeField]
+    private float speedMultiplier;
     private Vector2 moveDirection;
     private float MAXMOVESPEED = 10f;
 
@@ -41,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        moveSpeed = 0f;
         rb = GetComponent<Rigidbody2D>();
         isWalking = true;
     }
@@ -50,16 +51,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (starBoy.isActive)
         {
-            rb.AddForce(moveDirection.x * moveSpeed * Vector2.right * 2f, ForceMode2D.Force);
+            rb.AddForce(moveDirection.x * moveSpeed * Vector2.right * speedMultiplier, ForceMode2D.Force);
             Friction();
             PlayerFalling();
-            SpeedAcceleration();
             //Ground detection logic
             if (OnGround())
             {
                 isGrounded = true;
                 canJump = true;
-
+                fallTimer = 0f;
             }
             else
             {
@@ -67,6 +67,48 @@ public class PlayerMovement : MonoBehaviour
                 canJump = false;
             }
         }
+    }
+    private void SpeedController()
+    {
+        const float acceleration = 70.5f;
+        const float deceleration = 70.5f;
+
+        if (Mathf.Abs(moveDirection.x) > 0f)
+        {
+
+            if (isWalking)
+            {
+                moveSpeed += Time.deltaTime * acceleration * speedMultiplier;
+                if (moveSpeed > starBoy.walkSpeed)
+                {
+                    moveSpeed = starBoy.walkSpeed;
+                }
+            }
+
+            if (isRunning)
+            {
+                moveSpeed += Time.deltaTime * acceleration * speedMultiplier * 2f;
+                if (moveSpeed > starBoy.runSpeed)
+                {
+                    moveSpeed = starBoy.runSpeed;
+                }
+            }
+        }
+
+        if (Mathf.Abs(moveDirection.x) == 0f)
+        {
+            moveSpeed -= Time.deltaTime * deceleration * speedMultiplier;
+
+            if (moveSpeed <= 0f)
+            {
+                moveSpeed = 0f;
+            }
+        }
+    }
+
+    private void Update()
+    {
+        SpeedController();
     }
 
     public bool OnGround()
@@ -129,47 +171,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void SpeedAcceleration()
-    {
-        const float acceleration = 70.5f;
-        const float deceleration = 70.5f;
-
-        if (moveDirection.x == 0f)
-        {
-            moveSpeed -= Time.deltaTime * deceleration * 2f;
-
-            if (moveSpeed <= 0f)
-            {
-                moveSpeed = 0f;
-            }
-        }
-        else if (Mathf.Abs(moveDirection.x) >= 1f)
-        {
-            if (isWalking)
-            {
-                moveSpeed += Time.deltaTime * acceleration * 2f;
-
-                if (Mathf.Abs(moveSpeed) >= starBoy.walkSpeed)
-                {
-                    moveSpeed = starBoy.walkSpeed;
-                }
-            }
-        }
-
-        if (Mathf.Abs(moveDirection.x) >= 1f)
-        {
-            if (isRunning)
-            {
-                moveSpeed += Time.deltaTime * acceleration * 2f;
-
-                if (Mathf.Abs(moveSpeed) >= starBoy.runSpeed)
-                {
-                    moveSpeed = starBoy.runSpeed;
-                }
-            }
-        }
-    }
-
     private void PlayerJump()
     {
         if (starBoy.isActive)
@@ -182,6 +183,11 @@ public class PlayerMovement : MonoBehaviour
             else return;
         }
         else return;
+    }
+
+    public float getFallTime()
+    {
+        return fallTimer;
     }
 
     public void PlayerFallingTimer()
@@ -209,7 +215,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void ResetFallTimer()
     {
-        fallTimer = 0f;
+        hasLanded = false;
     }
 
     public void Move(InputAction.CallbackContext context)

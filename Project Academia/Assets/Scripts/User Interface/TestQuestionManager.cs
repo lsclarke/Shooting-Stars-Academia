@@ -46,12 +46,36 @@ public class TestQuestionManager : MonoBehaviour
         canTurnOn = true;       
     }
 
+    public bool CanTurnOnCanvas()
+    {
+        return canTurnOn;
+    }
+
+    public void setTimeLimit(float value)
+    {
+        crisisManager.timerLimit = value;
+    }
+
+    public float getTimeLimit()
+    {
+        return crisisManager.timerLimit;
+    }
+
+
     public void TurnOnCrisisProblemScreen()
     {
         if (canTurnOn) {
             isAnwserCorrect = false;
             OnActive?.Invoke();
             canTurnOn = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (!canTurnOn)
+        {
+            crisisManager.timerLimit -= Time.deltaTime * 0.1f;
         }
     }
 

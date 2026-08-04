@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,13 @@ public class TestQuestionCanvas : MonoBehaviour
     [SerializeField]
     private StarBoy starBoy;
 
+    [SerializeField]
+    private Slider timerProgressSlider;
+    [SerializeField]
+    private TextMeshProUGUI timerCountText;
+    [SerializeField]
+    private ColorCrisisManager crisisManager;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +31,8 @@ public class TestQuestionCanvas : MonoBehaviour
         isOn = false;
         passed = false;
         failed = false;
+        timerProgressSlider.maxValue = crisisManager.timerLimit;
+        timerProgressSlider.value = timerProgressSlider.maxValue;
     }
 
     public void setIsOnParameter(bool value)
@@ -73,5 +83,10 @@ public class TestQuestionCanvas : MonoBehaviour
     void Update()
     {
         setAnimationParameters();
+        if (!testQuestionManager.CanTurnOnCanvas())
+        {
+            timerCountText.text = $"{testQuestionManager.getTimeLimit()}s";
+            
+        }
     }
 }
