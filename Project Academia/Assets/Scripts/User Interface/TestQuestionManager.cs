@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,6 +11,8 @@ public class TestQuestionManager : MonoBehaviour
     [SerializeField]
     private StartQuestonSequence startQuestonSequence;
 
+    [SerializeField]
+    private ButtonBehavior buttonBehavior;
 
     //UI Text
 
@@ -25,6 +28,9 @@ public class TestQuestionManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI answer3TextMesh;
 
+    [SerializeField]
+    private TextMeshProUGUI timerCountText;
+
     //Int
 
     public int index;
@@ -33,6 +39,7 @@ public class TestQuestionManager : MonoBehaviour
 
     private bool canTurnOn = true;
     private bool isAnwserCorrect;
+    private bool timerOn;
 
     //Unity Events
 
@@ -41,9 +48,17 @@ public class TestQuestionManager : MonoBehaviour
 
     private Button button;
 
+    //Slider
+    [SerializeField]
+    private Slider timerProgressSlider;
+
+
     private void Start()
     {
-        canTurnOn = true;       
+        canTurnOn = true;
+        timerOn = false;
+        timerProgressSlider.maxValue = crisisManager.timerLimit;
+        timerProgressSlider.value = timerProgressSlider.maxValue;
     }
 
     public bool CanTurnOnCanvas()
@@ -68,16 +83,40 @@ public class TestQuestionManager : MonoBehaviour
             isAnwserCorrect = false;
             OnActive?.Invoke();
             canTurnOn = false;
+            StartCoroutine("startTimer");
         }
     }
+    
+    private IEnumerator startTimer()
+    {
+        yield return new WaitForSeconds(7f);
+        timerOn = true;
+    } 
 
     private void Update()
     {
-        if (!canTurnOn)
+        if (timerOn)
         {
-            crisisManager.timerLimit -= Time.deltaTime * 0.1f;
+            timerCountText.text = $"{Mathf.FloorToInt(crisisManager.timerLimit % 60f)}";
+            crisisManager.timerLimit -= Time.deltaTime;
+            timerProgressSlider.value = crisisManager.timerLimit;
+            if (crisisManager.timerLimit <= 0f)
+            {
+                timerOn = false;
+                crisisManager.timerLimit = timerProgressSlider.maxValue;
+            }
+
+            if (timerProgressSlider.value <= 0f)
+            {
+                buttonBehavior.TimeRanOut();
+                timerOn = false;
+            }
+
+            //MUST UPDATE SLIDER TO SHOW FAIL WHEN TIMER RUNS OUT*******************************************
         }
     }
+
+
 
     public void SetPassFailString(string value)
     {
@@ -106,6 +145,12 @@ public class TestQuestionManager : MonoBehaviour
 
     public void setContentContainerText()
     {
+        int dice = 0;
+
+        int roll = Random.Range(0,4);
+
+        Debug.Log(roll);
+
         if (startQuestonSequence.GetProblemNumber() == index)
         {
             chromaQuestionTextMesh.text = $"{crisisManager.problemQuestions[index]}";
