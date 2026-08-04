@@ -62,9 +62,27 @@ public class StartQuestonSequence : MonoBehaviour, IInteractable
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            InteractCanvas.SetActive(true);
             textureParticle.Play();
-            shapeLight2D.gameObject.SetActive(true);
+
+            if (starBoy.zone.ToString() == colorType.ToString())
+            {
+                InteractCanvas.SetActive(true);
+                shapeLight2D.gameObject.SetActive(true);
+            }else return;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            textureParticle.Play();
+
+            if (starBoy.zone.ToString() == colorType.ToString())
+            {
+                InteractCanvas.SetActive(true);
+                shapeLight2D.gameObject.SetActive(true);
+            }else return;
         }
     }
 

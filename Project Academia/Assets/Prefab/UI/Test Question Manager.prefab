@@ -46,17 +46,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TestQuestionManager
   crisisManager: {fileID: 11400000, guid: a4ab82e8f02da244a937376fe8efdeb0, type: 2}
   startQuestonSequence: {fileID: 0}
+  buttonBehavior: {fileID: 0}
+  crisisProblemTextMesh: {fileID: 0}
   chromaQuestionTextMesh: {fileID: 0}
+  passFailTextMesh: {fileID: 0}
   answer1TextMesh: {fileID: 0}
   answer2TextMesh: {fileID: 0}
   answer3TextMesh: {fileID: 0}
+  timerCountText: {fileID: 0}
   index: 0
   OnActive:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6037151871316991313}
         m_TargetAssemblyTypeName: TestQuestionManager, Assembly-CSharp
-        m_MethodName: TurnOnCrisisProblemScreen
+        m_MethodName: setContentContainerText
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -66,3 +70,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  timerProgressSlider: {fileID: 0}

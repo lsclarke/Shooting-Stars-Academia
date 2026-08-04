@@ -17,6 +17,8 @@ public class TestQuestionManager : MonoBehaviour
     //UI Text
 
     [SerializeField]
+    private TextMeshProUGUI crisisProblemTextMesh;
+    [SerializeField]
     private TextMeshProUGUI chromaQuestionTextMesh;
     [SerializeField]
     private TextMeshProUGUI passFailTextMesh;
@@ -80,6 +82,7 @@ public class TestQuestionManager : MonoBehaviour
     public void TurnOnCrisisProblemScreen()
     {
         if (canTurnOn) {
+            crisisManager.timerLimit = 15f;
             isAnwserCorrect = false;
             OnActive?.Invoke();
             canTurnOn = false;
@@ -89,7 +92,7 @@ public class TestQuestionManager : MonoBehaviour
     
     private IEnumerator startTimer()
     {
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(5f);
         timerOn = true;
     } 
 
@@ -153,6 +156,7 @@ public class TestQuestionManager : MonoBehaviour
 
         if (startQuestonSequence.GetProblemNumber() == index)
         {
+            crisisProblemTextMesh.text = $"Color Crisis Problem No.{index+1}";
             chromaQuestionTextMesh.text = $"{crisisManager.problemQuestions[index]}";
 
             answer1TextMesh.text = $"{crisisManager.correctAnswers[index]}";

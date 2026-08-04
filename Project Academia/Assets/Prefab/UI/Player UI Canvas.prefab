@@ -120,7 +120,7 @@ MonoBehaviour:
   starPowerTextMesh: {fileID: 4507528698526232636}
   colorZoneTextMesh: {fileID: 2624475455961646138}
   starBoy: {fileID: 11400000, guid: a238d468c616e9d4a8278257b7ac373a, type: 2}
-  colorWheelCanvas: {fileID: 0}
+  playerHealth: {fileID: 0}
   healthBarSlider: {fileID: 7209504901332790368}
   starPowerBarSlider: {fileID: 2628699537366476}
   colorZoneBarFill: {fileID: 6995492406889407199}
@@ -132,9 +132,10 @@ MonoBehaviour:
   - {fileID: 1464468371825076794}
   - {fileID: 1083162457956762473}
   shapeImages:
+  - {fileID: -6016291631206399159, guid: 680d903b24b588e45bf8862b2ad1ef18, type: 3}
+  - {fileID: -4912443232591495989, guid: 1ac238f06071931479220411b90cd7c5, type: 3}
   - {fileID: 5642310425369314476, guid: 1ac238f06071931479220411b90cd7c5, type: 3}
   - {fileID: 200355018001432189, guid: 1ac238f06071931479220411b90cd7c5, type: 3}
-  - {fileID: -4912443232591495989, guid: 1ac238f06071931479220411b90cd7c5, type: 3}
   - {fileID: 3888680510990850907, guid: 1ac238f06071931479220411b90cd7c5, type: 3}
   - {fileID: 8532088265273227774, guid: 1ac238f06071931479220411b90cd7c5, type: 3}
   - {fileID: -2307299779914599587, guid: 1ac238f06071931479220411b90cd7c5, type: 3}
@@ -838,9 +839,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1346,7 +1347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
+  m_Color: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1633,9 +1634,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1946,7 +1947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
+  m_Color: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -24,6 +24,11 @@ public class PlayerHealth : KnockBackController
 
         cameraShake = GameObject.Find("Camera Shaker").gameObject.GetComponent<CameraShake>();
     }
+    
+    public float getMaxHealth()
+    {
+        return MAXHEALTH;
+    }
 
     public void setIsHurt(bool value)
     {

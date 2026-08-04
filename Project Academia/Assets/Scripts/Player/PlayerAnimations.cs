@@ -21,6 +21,9 @@ public class PlayerAnimations : MonoBehaviour
     [SerializeField]
     private ParticleSystem afterImageBurstParticle;
 
+
+    private bool isFrozen;
+    private bool hasLessGravity;
     ///This represents the color mode the player is in, based on this the player will be able to perform different abilities
     public enum MoveStates
     {
@@ -138,6 +141,17 @@ public class PlayerAnimations : MonoBehaviour
         StartCoroutine(burtsParticle());
     } 
 
+    public void GravityChange()
+    {
+        StartCoroutine("SlowDownGravity");
+    }
+
+    IEnumerator SlowDownGravity()
+    {
+        playerMovement.getRigidbody2D().gravityScale = 0.2f;
+        yield return new WaitForSeconds(1f);
+        playerMovement.getRigidbody2D().gravityScale = 1f;
+    }
 
     public void EndLandingSequence()
     {
