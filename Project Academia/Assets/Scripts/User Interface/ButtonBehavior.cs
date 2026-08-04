@@ -28,6 +28,25 @@ public class ButtonBehavior : MonoBehaviour
         button = GetComponent<Button>();
     }
 
+    public void TimeRanOut()
+    {
+        if (answerTextMesh.text != testQuestionManager.GetCorrectAnswer())//Failed
+        {
+            testQuestionManager.SetIsAnwserCorrect(false);
+
+            if (!testQuestionManager.GetIsAnwserCorrect())
+            {
+                Debug.Log($"{answerTextMesh.text.ToUpper()}");
+                Debug.Log($"DOES NOT MATCHES WITH");
+                Debug.Log($"{testQuestionManager.GetCorrectAnswer().ToUpper()}");
+
+                testQuestionCanvas.setPassedParameter(false);
+                testQuestionCanvas.setFailedParameter(true);
+                testQuestionManager.SetPassFailString("Wrong");
+            }
+        }
+    }
+
     public void ButtonClicked()
     {
         Debug.Log($"{answerTextMesh.text.ToUpper()}");

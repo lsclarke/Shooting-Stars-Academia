@@ -10391,6 +10391,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2874208cb85d04695352850f724967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  starBoy: {fileID: 11400000, guid: a238d468c616e9d4a8278257b7ac373a, type: 2}
+  gameOverCanvasController: {fileID: 0}
+  playerSpriteRenderer: {fileID: 3846846234397463025}
 --- !u!114 &808309064433189761
 MonoBehaviour:
   m_ObjectHideFlags: 0

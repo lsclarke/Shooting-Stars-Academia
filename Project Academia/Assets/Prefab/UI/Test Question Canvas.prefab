@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.779325, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1605,7 +1605,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 7653557347566896824}
   m_HandleRect: {fileID: 0}
@@ -1613,7 +1613,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.621
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1895,9 +1895,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TestQuestionCanvas
   testQuestionManager: {fileID: 0}
   starBoy: {fileID: 11400000, guid: a238d468c616e9d4a8278257b7ac373a, type: 2}
-  timerProgressSlider: {fileID: 867112290795372478}
-  timerCountText: {fileID: 8280429458760271120}
-  crisisManager: {fileID: 11400000, guid: a4ab82e8f02da244a937376fe8efdeb0, type: 2}
 --- !u!1 &4766611272633012108
 GameObject:
   m_ObjectHideFlags: 0
@@ -2182,8 +2179,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -7.5, y: 0}
-  m_SizeDelta: {x: -15, y: 0}
+  m_AnchoredPosition: {x: -5.9350586, y: -1.3500004}
+  m_SizeDelta: {x: 2.130087, y: 17.300003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1069575868994737835
 CanvasRenderer:
@@ -2206,7 +2203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2315,7 +2312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2344083691238762809
 RectTransform:
   m_ObjectHideFlags: 0
