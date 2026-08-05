@@ -67,11 +67,25 @@ public class PlayerMovement : MonoBehaviour
                 canJump = false;
             }
         }
+
+        if (!starBoy.isActive)
+        {
+            if (OnGround())
+            {
+                isGrounded = true;
+                canJump = false;
+            }
+            else
+            {
+                isGrounded = false;
+                canJump = false;
+            }
+        }
     }
     private void SpeedController()
     {
-        const float acceleration = 70.5f;
-        const float deceleration = 70.5f;
+        const float acceleration = 100.5f;
+        const float deceleration = 100.5f;
 
         if (Mathf.Abs(moveDirection.x) > 0f)
         {
@@ -179,6 +193,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Vector2 jumpDirection = new Vector2(rb.linearVelocityX, starBoy.jumpForce);
                 rb.AddForce(jumpDirection, ForceMode2D.Impulse);
+                canJump = false;
             }
             else return;
         }

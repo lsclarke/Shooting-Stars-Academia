@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 //Lenard (Nova) Updated: 7/14/2025
@@ -121,5 +122,10 @@ public class PlayerUIController : MonoBehaviour
     {
         setColorAndShapeIcon();
         setSlidersAndText();
+
+        if (Keyboard.current.rKey.isPressed)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }

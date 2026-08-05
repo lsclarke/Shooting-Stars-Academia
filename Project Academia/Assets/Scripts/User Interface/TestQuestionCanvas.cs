@@ -68,6 +68,12 @@ public class TestQuestionCanvas : MonoBehaviour
         passed = false;
         failed = false; 
         isOn = false;
+        starBoy.isActive = true;
+    }
+
+    public void StartTest()
+    {
+        testQuestionManager.setContentContainerText();
     }
 
     // Update is called once per frame

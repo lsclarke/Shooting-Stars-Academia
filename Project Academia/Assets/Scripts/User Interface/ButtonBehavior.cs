@@ -22,10 +22,14 @@ public class ButtonBehavior : MonoBehaviour
     [SerializeField]
     private StartQuestonSequence startQuestonSequence;
 
+    [SerializeField]
+    private StarBoy starBoy;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         button = GetComponent<Button>();
+        Debug.Log($"{testQuestionManager.GetCorrectAnswer().ToUpper()}");
     }
 
     public void TimeRanOut()
@@ -47,39 +51,54 @@ public class ButtonBehavior : MonoBehaviour
         }
     }
 
+    public void Passed()
+    {
+        Debug.Log($"{answerTextMesh.text.ToUpper()}, MATCHES WITH {testQuestionManager.GetCorrectAnswer().ToUpper()}");
+
+        testQuestionManager.SetIsAnwserCorrect(true);
+
+        if (testQuestionManager.GetIsAnwserCorrect())
+        {
+            testQuestionManager.SetTimerOn(false);
+            testQuestionCanvas.setPassedParameter(true);
+            testQuestionCanvas.setFailedParameter(false);
+            testQuestionManager.SetPassFailString("Pass");
+            obsticleBehavior.OnComplete?.Invoke();
+        }
+    }
+
+    public void Failed()
+    {
+        testQuestionManager.SetIsAnwserCorrect(false);
+        Debug.Log($"{answerTextMesh.text.ToUpper()}, DOES NOT MATCHES WITH {testQuestionManager.GetCorrectAnswer().ToUpper()}");
+
+        if (!testQuestionManager.GetIsAnwserCorrect())
+        {
+            Debug.Log($"{answerTextMesh.text.ToUpper()}");
+            Debug.Log($"DOES NOT MATCHES WITH");
+            Debug.Log($"{testQuestionManager.GetCorrectAnswer().ToUpper()}");
+            testQuestionManager.SetTimerOn(false);
+            testQuestionCanvas.setPassedParameter(false);
+            testQuestionCanvas.setFailedParameter(true);
+            testQuestionManager.SetPassFailString("Wrong");
+            obsticleBehavior.OnInComplete?.Invoke();
+        }
+    }
+
     public void ButtonClicked()
     {
-        Debug.Log($"{answerTextMesh.text.ToUpper()}");
-        Debug.Log($"{testQuestionManager.GetCorrectAnswer().ToUpper()}");
         //Passed
         if (answerTextMesh.text == testQuestionManager.GetCorrectAnswer())
         {
-            testQuestionManager.SetIsAnwserCorrect(true);
-
-            if (testQuestionManager.GetIsAnwserCorrect())
-            {
-
-                testQuestionCanvas.setPassedParameter( true);
-                testQuestionCanvas.setFailedParameter(false);
-                testQuestionManager.SetPassFailString("Pass");
-                obsticleBehavior.OnComplete?.Invoke();
-            }
-        }
-
-        if (answerTextMesh.text != testQuestionManager.GetCorrectAnswer())//Failed
+            Passed();
+        } 
+        else if (answerTextMesh.text != testQuestionManager.GetCorrectAnswer())//Failed
         {
-            testQuestionManager.SetIsAnwserCorrect(false);
-
-            if (!testQuestionManager.GetIsAnwserCorrect())
-            {
-                Debug.Log($"{answerTextMesh.text.ToUpper()}");
-                Debug.Log($"DOES NOT MATCHES WITH");
-                Debug.Log($"{testQuestionManager.GetCorrectAnswer().ToUpper()}");
-
-                testQuestionCanvas.setPassedParameter(false);
-                testQuestionCanvas.setFailedParameter(true);
-                testQuestionManager.SetPassFailString("Wrong");
-            }
+            Failed();
         }
+        
+
+        
+
     }
 }

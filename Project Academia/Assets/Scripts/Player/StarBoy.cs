@@ -13,8 +13,8 @@ public class StarBoy : ScriptableObject
     public float jumpForce;//7f
 
     [Space(10f)]
-    public float walkSpeed;//75
-    public float runSpeed;//225
+    public float walkSpeed;//175
+    public float runSpeed;//275
 
 
     ///This represents the color mode the player is in, based on this the player will be able to perform different abilities

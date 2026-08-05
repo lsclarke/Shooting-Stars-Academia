@@ -5,13 +5,11 @@ using UnityEngine.Events;
 public class ObsticleBehavior : MonoBehaviour
 {
     public UnityEvent OnComplete;
+    public UnityEvent OnInComplete;
     public int colorLayerIndex;
     public SpriteRenderer sprite;
     [SerializeField]
     public Color newColor;
-
-    [SerializeField]
-    private Collider2D playerCollider;
 
     public void SetColor()
     {

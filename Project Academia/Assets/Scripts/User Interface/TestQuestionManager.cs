@@ -38,7 +38,7 @@ public class TestQuestionManager : MonoBehaviour
     public int index;
 
     //Bool
-
+    [SerializeField]
     private bool canTurnOn = true;
     private bool isAnwserCorrect;
     private bool timerOn;
@@ -46,9 +46,6 @@ public class TestQuestionManager : MonoBehaviour
     //Unity Events
 
     public UnityEvent OnActive;
-    //Button
-
-    private Button button;
 
     //Slider
     [SerializeField]
@@ -81,18 +78,19 @@ public class TestQuestionManager : MonoBehaviour
 
     public void TurnOnCrisisProblemScreen()
     {
+        //When Color Crisis Problem is visible/active
         if (canTurnOn) {
             crisisManager.timerLimit = 15f;
             isAnwserCorrect = false;
             OnActive?.Invoke();
             canTurnOn = false;
             StartCoroutine("startTimer");
-        }
+        }else return;
     }
     
     private IEnumerator startTimer()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4.25f);
         timerOn = true;
     } 
 
@@ -103,23 +101,31 @@ public class TestQuestionManager : MonoBehaviour
             timerCountText.text = $"{Mathf.FloorToInt(crisisManager.timerLimit % 60f)}";
             crisisManager.timerLimit -= Time.deltaTime;
             timerProgressSlider.value = crisisManager.timerLimit;
+
             if (crisisManager.timerLimit <= 0f)
             {
-                timerOn = false;
-                crisisManager.timerLimit = timerProgressSlider.maxValue;
-            }
-
-            if (timerProgressSlider.value <= 0f)
-            {
+                crisisManager.timerLimit = 0f;
                 buttonBehavior.TimeRanOut();
                 timerOn = false;
+                canTurnOn = true;
             }
 
-            //MUST UPDATE SLIDER TO SHOW FAIL WHEN TIMER RUNS OUT*******************************************
+        }
+        else
+        {
+            canTurnOn = true;
         }
     }
 
+    public void ResetTimer()
+    {
+        crisisManager.timerLimit = 15f;
+    }
 
+    public void SetTimerOn(bool value)
+    {
+        timerOn = value;
+    }
 
     public void SetPassFailString(string value)
     {
@@ -148,12 +154,8 @@ public class TestQuestionManager : MonoBehaviour
 
     public void setContentContainerText()
     {
-        int dice = 0;
 
-        int roll = Random.Range(0,4);
-
-        Debug.Log(roll);
-
+        canTurnOn = false;
         if (startQuestonSequence.GetProblemNumber() == index)
         {
             crisisProblemTextMesh.text = $"Color Crisis Problem No.{index+1}";

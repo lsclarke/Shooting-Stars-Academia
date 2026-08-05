@@ -63,28 +63,17 @@ public class StartQuestonSequence : MonoBehaviour, IInteractable
         if (collision.gameObject.CompareTag("Player"))
         {
             textureParticle.Play();
+            Debug.Log($"Particle is {textureParticle.isPlaying}");
 
             if (starBoy.zone.ToString() == colorType.ToString())
             {
+                testQuestionManager.index = ProblemNumber;
                 InteractCanvas.SetActive(true);
                 shapeLight2D.gameObject.SetActive(true);
-            }else return;
+            }
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            textureParticle.Play();
-
-            if (starBoy.zone.ToString() == colorType.ToString())
-            {
-                InteractCanvas.SetActive(true);
-                shapeLight2D.gameObject.SetActive(true);
-            }else return;
-        }
-    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -97,6 +86,15 @@ public class StartQuestonSequence : MonoBehaviour, IInteractable
         }
     }
 
+    public void SetQuestions()
+    {
+        
+        starBoy.isActive = false;
+        playerMovement.enabled = false;
+        playerAnimations.enabled = false;
+        testQuestionManager.TurnOnCrisisProblemScreen();
+        testQuestionCanvas.setIsOnParameter(true);
+    }
 
     public void StartColorCrisis()
     {
@@ -113,21 +111,16 @@ public class StartQuestonSequence : MonoBehaviour, IInteractable
 
             if (colorMatched)
             {
-                starBoy.isActive = false;
-                playerMovement.enabled = false;
-                playerAnimations.enabled = false;
-                testQuestionManager.TurnOnCrisisProblemScreen();
-                testQuestionCanvas.setIsOnParameter(true);
+                SetQuestions();
             }
         }
         else
         {
-            starBoy.isActive = false;
-            playerMovement.enabled = false;
-            playerAnimations.enabled = false;
-            testQuestionManager.TurnOnCrisisProblemScreen();
-            testQuestionCanvas.setIsOnParameter(true);
+            SetQuestions();
         }
+
+        playerMovement.enabled = false;
+        playerAnimations.enabled = false;
     }
 
     public void Interact()
